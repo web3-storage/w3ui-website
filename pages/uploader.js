@@ -123,7 +123,7 @@ export default function Uploader() {
             <div className="ui-uploader card relative rounded-xl shadow-xl p-6 xl:p-8 max-w-sm transition">
               <Image src="/ui-uploader.svg" alt="ui-wallet" width="400" height="200" />
             </div>
-            <p className="text-xl lg:text-2xl xl:text-3xl xl:max-w-4xl font-400 leading-loose my-4">
+            <p className="text-xl lg:text-2xl xl:text-3xl xl:max-w-4xl font-400 leading-normal my-4">
               An uploader component to simplify the next generation of Web3.Storage.
             </p>
           </div>
@@ -137,7 +137,7 @@ export default function Uploader() {
                   </div>
                   <p className="ml-12 text-lg font-medium leading-6 text-white">{feature.name}</p>
                 </dt>
-                <dd className="mt-2 ml-12 text-base text-gray-500">{feature.description}</dd>
+                <dd className="mt-2 ml-12 text-base text-gray-300">{feature.description}</dd>
               </div>
             ))}
           </dl>
