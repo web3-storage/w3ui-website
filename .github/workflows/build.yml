@@ -81,6 +81,7 @@ jobs:
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
   publish:
     if: (github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.release.outputs.releases_created) || inputs.force_publish
     name: Publish
