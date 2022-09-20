@@ -7,14 +7,14 @@ import { Tab } from '@headlessui/react'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { default as oneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs/atom-one-dark';
 import { BoltIcon, GlobeAltIcon, ScaleIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
-const cardClass = `card relative rounded-xl shadow-xl p-6 xl:p-8 max-w-sm transition`;
+const cardClass = `card relative rounded-xl shadow-xl p-6 xl:p-8 max-w-sm bg-opacity-75 hover:bg-opacity-100 transition flex`;
 const cardTitleClass = `text-xl font-bold my-2`;
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Home() {
+export default function UploadsTable() {
   const frameworks = ['react'];
   const code = {
     'react': `
@@ -114,59 +114,21 @@ export default function Home() {
       </Head>
 
       <main className={`main container mx-auto max-w-4xl flex flex-wrap items-center min-h-screen overflow-auto transition-opacity ${inView ? '' : 'scrolled'}`} ref={ref}>
-        <div className="text-lg mt-auto xl:mt-36">
+        <div className="text-lg xl:mt-8">
           <div className="flex items-center gap-2 mb-12">
             <svg className="site-logo-image text-white" width="40" viewBox="0 0 27.2 27.18" xmlns="http://www.w3.org/2000/svg"><path d="M13.6 27.18A13.59 13.59 0 1127.2 13.6a13.61 13.61 0 01-13.6 13.58zM13.6 2a11.59 11.59 0 1011.6 11.6A11.62 11.62 0 0013.6 2z" fill="currentColor"></path><path d="M12.82 9.9v2.53h1.6V9.9l2.09 1.21.77-1.21-2.16-1.32 2.16-1.32-.77-1.21-2.09 1.21V4.73h-1.6v2.53l-2-1.21L10 7.26l2.2 1.32L10 9.9l.78 1.21zM18 17.79v2.52h1.56v-2.52L21.63 19l.78-1.2-2.16-1.33 2.16-1.28-.78-1.19-2.08 1.2v-2.58H18v2.56L15.9 14l-.77 1.2 2.16 1.32-2.16 1.33.77 1.15zM8.13 17.79v2.52h1.56v-2.52L11.82 19l.77-1.2-2.16-1.33 2.12-1.28-.73-1.24-2.13 1.23v-2.56H8.13v2.56L6.05 14l-.78 1.2 2.16 1.3-2.16 1.33.78 1.17z" fill="currentColor"></path></svg>
             <h1 className="text-white text-2xl tracking-wider">W3:UI</h1>
           </div>
-          <p className="text-xl lg:text-2xl xl:text-3xl xl:max-w-4xl font-400 leading-loose my-4">
-            UI components for the next generation of Web3.Storage APIs.
-          </p>
-
-          <p className="text-xl leading-loose text-gray-400">Headless, type-safe, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-
-        </div>
-        <div className="grid lg:grid-cols-3 gap-2 lg:gap-8 mt-0">
-
-          <Link href="/wallet">
-            <div>
-              <a className={`ui-wallet ${cardClass}`}>
-                <Image src="/ui-wallet.svg" alt="ui-wallet" width="400" height="200" />
-              </a>
-              <h2 className={cardTitleClass}>Wallet</h2>
+          <div className="flex justify-between items-center gap-12">
+            <div className="ui-table card relative rounded-xl shadow-xl p-6 xl:p-8 max-w-sm transition">
+              <Image src="/ui-table.svg" alt="ui-wallet" width="400" height="200" />
             </div>
-          </Link>
+            <p className="text-xl lg:text-2xl xl:text-3xl xl:max-w-4xl font-400 leading-loose my-4">
+              A Table component for viewing the next generation of Web3.Storage data.
+            </p>
+          </div>
 
-
-          <Link href="/uploader">
-            <div>
-              <a className={`ui-uploader ${cardClass}`}>
-                <Image src="/ui-uploader.svg" alt="ui-uploader" width="400" height="200" />
-              </a>
-              <h2 className={cardTitleClass}>Uploader</h2>
-            </div>
-          </Link>
-
-          <Link href="/uploads-table">
-            <div>
-              <a className={`ui-table ${cardClass}`}>
-                <Image src="/ui-table.svg" alt="ui-table" width="400" height="200" />
-              </a>
-              <h2 className={cardTitleClass}>Uploads Table</h2>
-            </div>
-          </Link>
-        </div>
-
-        <div className="flex gap-8 items-center mb-24">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={24} width={24} ><g><path d="M22.17,16.66H14.83a1.83,1.83,0,0,1,0-3.66h7.34a1.83,1.83,0,0,1,0,3.66Z" fill="currentColor" /><path d="M14.83,11A1.83,1.83,0,0,1,13,9.17V1.83a1.83,1.83,0,1,1,3.65,0V9.17A1.83,1.83,0,0,1,14.83,11Z" fill="currentColor" /><path d="M9.17,11H1.83a1.83,1.83,0,0,1,0-3.66H9.17a1.83,1.83,0,0,1,0,3.66Z" fill="currentColor" /><path d="M9.17,24a1.83,1.83,0,0,1-1.83-1.83V14.83a1.83,1.83,0,1,1,3.65,0v7.34A1.83,1.83,0,0,1,9.17,24Z" fill="currentColor" /><path d="M2.22,17.48A2.22,2.22,0,0,1,0,15.27,2.27,2.27,0,0,1,2.27,13H3.75a.74.74,0,0,1,.73.74v1.48A2.26,2.26,0,0,1,2.22,17.48Z" fill="currentColor" /><path d="M10.27,4.48H8.78A2.26,2.26,0,0,1,6.52,2.22,2.21,2.21,0,0,1,8.74,0,2.27,2.27,0,0,1,11,2.27V3.75A.73.73,0,0,1,10.27,4.48Z" fill="currentColor" /><path d="M15.26,24A2.27,2.27,0,0,1,13,21.73V20.25a.73.73,0,0,1,.73-.73h1.49a2.26,2.26,0,0,1,2.26,2.26A2.21,2.21,0,0,1,15.26,24Z" fill="currentColor" /><path d="M21.73,11H20.25a.74.74,0,0,1-.73-.74V8.78a2.26,2.26,0,0,1,2.26-2.26A2.22,2.22,0,0,1,24,8.73,2.27,2.27,0,0,1,21.73,11Z" fill="currentColor" /></g></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height={24} width={24} ><path d="M12,.28A12,12,0,0,0,8.28,23.69l.28,0a1,1,0,0,0,.7-.24,1.05,1.05,0,0,0,.36-.82v-.21c0-.17,0-.4,0-1.09A.49.49,0,0,0,9.43,21a.5.5,0,0,0-.41-.1c-2.69.58-3.26-1.1-3.29-1.21A4.64,4.64,0,0,0,4,17.5l-.15-.11a.73.73,0,0,1,.38-.07,1.48,1.48,0,0,1,1.14.88,3,3,0,0,0,4,1.16A.53.53,0,0,0,9.67,19a2,2,0,0,1,.56-1.22.5.5,0,0,0,.15-.53.49.49,0,0,0-.42-.35c-2.37-.27-4.8-1.1-4.8-5.19A4,4,0,0,1,6.22,8.93a.49.49,0,0,0,.09-.52A3.56,3.56,0,0,1,6.32,6,5.57,5.57,0,0,1,8.84,7.15a.48.48,0,0,0,.42.06A10.66,10.66,0,0,1,12,6.85a10.31,10.31,0,0,1,2.75.36.46.46,0,0,0,.41-.06A5.53,5.53,0,0,1,17.68,6a3.54,3.54,0,0,1,0,2.38.48.48,0,0,0,.1.52,4,4,0,0,1,1.05,2.75c0,4.1-2.43,4.92-4.81,5.18a.49.49,0,0,0-.42.35.49.49,0,0,0,.15.52,2.23,2.23,0,0,1,.61,1.75v3.18a1.06,1.06,0,0,0,.37.82,1.18,1.18,0,0,0,1.06.19A12,12,0,0,0,12,.28Z" fill="currentColor" /></svg>
-        </div>
-      </main>
-
-      <section className="primary max-w-4xl mx-auto">
-        <div className="mx-auto">
-          <h2 className="sr-only">A better way to send money.</h2>
-          <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-16 md:gap-y-10 md:space-y-0">
+          <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-16 md:gap-y-10 md:space-y-0 mt-16">
             {features.map((feature) => (
               <div key={feature.name} className="relative">
                 <dt>
@@ -180,6 +142,10 @@ export default function Home() {
             ))}
           </dl>
         </div>
+      </main>
+
+      <section className="primary max-w-4xl mx-auto">
+
         <h4 className="mt-36 text-white text-2xl">Easy to use!</h4>
         <Tab.Group>
           <Tab.List className="">
@@ -210,7 +176,7 @@ export default function Home() {
         </a>
       </footer>
 
-      <svg style={{width:0, height:0, position: 'absolute'}} aria-hidden="true" focusable="false">
+      <svg style={{ width: 0, height: 0, position: 'absolute' }} aria-hidden="true" focusable="false">
         <linearGradient id="iconGradient" x2="1" y2="1">
           <stop offset="0%" stopColor="#d726d7" />
           <stop offset="50%" stopColor="#3064e0" />
