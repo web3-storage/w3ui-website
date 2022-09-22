@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/web3-storage/w3ui-website/compare/v1.0.0...v1.0.1) (2022-09-22)
+
+
+### Bug Fixes
+
+* clean up, break on mobile ([8d21cbb](https://github.com/web3-storage/w3ui-website/commit/8d21cbbdaa9bd09140821e5c876627cf68bdb36a))
+
 ## 1.0.0 (2022-09-20)
 
 
