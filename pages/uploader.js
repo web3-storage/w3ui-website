@@ -61,8 +61,6 @@ export default function UploaderPage() {
               id="uploader"
             />
 
-            <p className="text-gray-400 my-16 text-center"><strong className="text-white font-semibold">Supported frameworks:</strong> React, React Native, Vue, Solid, Svelte</p>
-
             <ComponentFeatures features={features} />
 
           </div>
