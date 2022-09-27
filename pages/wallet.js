@@ -22,6 +22,7 @@ export default function WalletPage() {
       icon: UserGroupIcon,
     }
   ]
+  const frameworkList = ['react', 'solid', 'vue']
   const { ref, inView, entry } = useInView({
     rootMargin: '0px',
     threshold: .99
@@ -34,15 +35,48 @@ export default function WalletPage() {
 
   useEffect(() => {
     setIsLoading(true)
-    fetch('https://api.github.com/repos/web3-storage/w3ui/contents/examples/react/sign-up-in/src/ContentPage.js')
-      .then(response => response.json())
-      .then(data => {
-        setFrameworks([{
-          id: 'react',
-          code: atob(data.content)
-        }])
+    const fetchHeaders = {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + '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',
+        'Host': 'api.producthunt.com'
+      }
+    };
+    const createFrameworkObject = async () => {
+      await Promise.all([
+        fetch(`https://api.github.com/repos/web3-storage/w3ui/contents/examples/react/sign-up-in/src/ContentPage.js`, fetchHeaders),
+        fetch(`https://api.github.com/repos/web3-storage/w3ui/contents/examples/solid/sign-up-in/src/ContentPage.jsx`, fetchHeaders),
+        fetch(`https://api.github.com/repos/web3-storage/w3ui/contents/examples/vue/sign-up-in/src/ContentPage.vue`, fetchHeaders)
+      ]
+      ).then(async([react, solid, vue]) => {
+        const reactCode = await react.json();
+        const solidCode = await solid.json();
+        const vueCode = await vue.json();
+        setFrameworks([
+          {
+            id: 'react',
+            title: 'React',
+            code: atob(reactCode.content),
+            language: 'jsx'
+          },
+          {
+            id: 'solid',
+            title: 'Solid',
+            code: atob(solidCode.content),
+            language: 'jsx'
+          },
+          {
+            id: 'vue',
+            title: 'Vue',
+            code: atob(vueCode.content),
+            language: 'htmlbars'
+          }
+        ])
         setIsLoading(false)
       })
+    }
+    createFrameworkObject();
   }, [])
 
   return (
@@ -66,7 +100,7 @@ export default function WalletPage() {
         </section>
       </main>
 
-      <CodeTabs frameworks={frameworks}/>
+      <CodeTabs frameworks={frameworks} />
 
       <Footer />
     </div>

@@ -15,7 +15,7 @@ export const components = [
     },
     {
         id: 'uploads-table',
-        title: 'Uploads Table',
+        title: 'Uploads List',
         desc: 'Paginated listings of uploaded items',
         class: 'ui-table',
         svg: '/ui-table.svg'

@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import Link from 'next/link'
 import { Nav } from './Nav'
+import { MobileNav } from './MobileNav';
 
 export const Header = () => {
+    const [isNavDrawerOpen, setIsNavDrawerOpen] = useState(false);
     return (
         <div className="flex flex-wrap w-full justify-between items-center px-10 md:px-20 py-10 md:py-20 mb-6">
             <Link href="/">
@@ -12,9 +15,26 @@ export const Header = () => {
                     </div>
                 </a>
             </Link>
-            <nav className="flex justify-end items-center gap-8">
+
+            <nav className="hidden md:visible justify-end items-center gap-8 md:flex ml-auto">
                 <Nav />
             </nav>
+
+            <button className="block md:hidden ml-auto" onClick={() => setIsNavDrawerOpen(true)}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+
+            <div className={`md:hidden ${!isNavDrawerOpen ? '-translate-x-full' : 'translate-x-0'} transition-all fixed top-0 left-0 z-10 bg-black flex w-screen h-screen flex-col text-white items-start p-12 text-left justify-center gap-2 overflow-auto`}>
+                <MobileNav />
+
+                <button onClick={() => setIsNavDrawerOpen(false)} className="fixed top-4 right-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
         </div>
     )
 }

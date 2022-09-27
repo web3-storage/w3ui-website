@@ -7,18 +7,23 @@ export const CodeTabs = ({ frameworks }) => {
         <>
             {frameworks && (
                 <section className="primary max-w-4xl mx-auto">
-                    <h4 className="mt-36 text-white text-2xl">Easy to use!</h4>
                     <Tab.Group>
-                        <Tab.List className="">
+                        <Tab.List className="flex gap-8 justify-center">
                             {frameworks.map((fm) => (
-                                <Tab key={fm}></Tab>
+                                <Tab key={fm.id} className="">
+                                    {({ selected }) => (
+                                        <button className={`px-8 py-5 rounded-t-md ${selected ? 'bg-[#282C34] text-white' : ''}`}>
+                                            {fm.title}
+                                        </button>
+                                    )}
+                                </Tab>
                             ))}
                         </Tab.List>
-                        <Tab.Panels className="mt-2">
+                        <Tab.Panels className="">
                             {frameworks.map((fm, idx) => (
                                 <Tab.Panel key={idx}>
-                                    <SyntaxHighlighter language="jsx" style={oneDark} className="rounded-lg shadow">
-                                        {fm.id === 'react' && fm.code}
+                                    <SyntaxHighlighter language={fm.language} style={oneDark} className="rounded-lg shadow !p-6">
+                                        {fm.code}
                                     </SyntaxHighlighter>
                                 </Tab.Panel>
                             ))}

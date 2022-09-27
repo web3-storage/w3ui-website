@@ -55,7 +55,7 @@ export default function UploadsTablePage() {
           <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-10 md:px-20 mb-24">
 
             <ComponentIntro
-              title="An uploads table component to simplify the next web3.storage data browsing."
+              title="An uploads list component to simplify the next web3.storage data browsing."
               desc="Obtain paginated listings of items uploaded to the service, optionally filtered and sorted by multiple fields and scoped to the auth keys that were delegated capabilities to upload. Listings also include processed “insights” into data structures which may include pathing data, malware detection and search keywords."
               id="table"
             />
