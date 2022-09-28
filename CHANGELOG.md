@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/web3-storage/w3ui-website/compare/v1.0.1...v1.1.0) (2022-09-28)
+
+
+### Features
+
+* add footer, add mobile nav ([08cfa26](https://github.com/web3-storage/w3ui-website/commit/08cfa26a1f7e3625e36e5c740f07f350f2473435))
+
+
+### Bug Fixes
+
+* page title ([#4](https://github.com/web3-storage/w3ui-website/issues/4)) ([ffe6d8f](https://github.com/web3-storage/w3ui-website/commit/ffe6d8ff36fa211d004a6e8a462302d811a701f2))
+
 ## [1.0.1](https://github.com/web3-storage/w3ui-website/compare/v1.0.0...v1.0.1) (2022-09-22)
 
 
