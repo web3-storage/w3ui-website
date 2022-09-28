@@ -20,7 +20,7 @@ export const Nav = () => {
                 >
                     <Menu.Items className="absolute text-left right-0 z-10 mt-2 w-96 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {components.map(comp => (
-                            <>
+                            <Fragment key={comp.title}>
                                 <Menu.Item>
                                     {({ active }) => (
                                         <Link href={`/${comp.id}`}>
@@ -36,7 +36,7 @@ export const Nav = () => {
                                         </Link>
                                     )}
                                 </Menu.Item>
-                            </>
+                            </Fragment>
                         ))}
                     </Menu.Items>
                 </Transition>
@@ -54,7 +54,7 @@ export const Nav = () => {
                 >
                     <Menu.Items className="absolute text-left right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {examples.map(ex => (
-                            <>
+                            <Fragment key={ex.title}>
                                 <Menu.Item>
                                     {({ active }) => (
                                         <Link href={`${ex.link}`}>
@@ -64,7 +64,7 @@ export const Nav = () => {
                                         </Link>
                                     )}
                                 </Menu.Item>
-                            </>
+                            </Fragment>
                         ))}
                     </Menu.Items>
                 </Transition>
@@ -82,7 +82,7 @@ export const Nav = () => {
                 >
                     <Menu.Items className="absolute text-left right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                         {APIRefs.map(apiRef => (
-                            <>
+                            <Fragment key={apiRef.title}>
                                 <Menu.Item>
                                     {({ active }) => (
                                         <Link href={`${apiRef.link}`}>
@@ -92,7 +92,7 @@ export const Nav = () => {
                                         </Link>
                                     )}
                                 </Menu.Item>
-                            </>
+                            </Fragment>
                         ))}
                     </Menu.Items>
                 </Transition>

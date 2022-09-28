@@ -6,15 +6,15 @@ export const CodeTabs = ({ frameworks }) => {
     return (
         <>
             {frameworks && (
-                <section className="primary max-w-4xl mx-auto">
+                <section className="max-w-5xl mx-auto mb-24">
                     <Tab.Group>
-                        <Tab.List className="flex gap-8 justify-center">
+                        <Tab.List className="flex gap-4 ml-6 justify-start">
                             {frameworks.map((fm) => (
                                 <Tab key={fm.id} className="">
                                     {({ selected }) => (
-                                        <button className={`px-8 py-5 rounded-t-md ${selected ? 'bg-[#282C34] text-white' : ''}`}>
+                                        <span className={`block px-8 py-4 rounded-t-md ${selected ? 'bg-[#282C34] text-white' : ''}`}>
                                             {fm.title}
-                                        </button>
+                                        </span>
                                     )}
                                 </Tab>
                             ))}
@@ -22,9 +22,14 @@ export const CodeTabs = ({ frameworks }) => {
                         <Tab.Panels className="">
                             {frameworks.map((fm, idx) => (
                                 <Tab.Panel key={idx}>
-                                    <SyntaxHighlighter language={fm.language} style={oneDark} className="rounded-lg shadow !p-6">
-                                        {fm.code}
-                                    </SyntaxHighlighter>
+                                    <div className="relative">
+                                        <SyntaxHighlighter language={fm.language} style={oneDark} className="rounded-lg shadow !p-6 !pt-10">
+                                            {fm.code}
+                                        </SyntaxHighlighter>
+                                        {fm.link && (
+                                            <a href={fm.link} target="_blank" rel="noreferrer" className="px-6 py-2 border b-white text-sm rounded-md shadow-md absolute top-4 right-4 hover:bg-gray-900">View on codesandbox.io</a>
+                                        )}
+                                    </div>
                                 </Tab.Panel>
                             ))}
                         </Tab.Panels>

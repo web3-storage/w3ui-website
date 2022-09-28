@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
-
 import { PageHead } from '../components/PageHead';
 import { CodeBracketSquareIcon, MagnifyingGlassPlusIcon } from '@heroicons/react/24/outline';
 import { Header } from '../components/Header';
@@ -8,8 +5,10 @@ import { ComponentIntro } from '../components/ComponentIntro';
 import { ComponentFeatures } from '../components/ComponentFeatures';
 import { Footer } from '../components/Footer';
 import { CodeTabs } from '../components/CodeTabs';
+import useScrollPosition from '@react-hook/window-scroll'
 
 export default function UploadsTablePage() {
+  const scrollY = useScrollPosition(60 /*fps*/)
   const features = [
     {
       name: 'Built-in Data "Insights"',
@@ -22,34 +21,37 @@ export default function UploadsTablePage() {
       icon: MagnifyingGlassPlusIcon,
     }
   ]
-  const { ref, inView, entry } = useInView({
-    rootMargin: '0px',
-    threshold: .99
-  });
-  const [framework, setFramework] = useState();
-  const [frameworks, setFrameworks] = useState([]);
-  const [codeReact, setCodeReact] = useState('');
-  const [codeReactNative, setCodeReactNative] = useState('');
-  const [isLoading, setIsLoading] = useState(false)
+  const frameworks = [
+    {
+      id: 'react',
+      title: 'React',
+      language: 'jsx',
+      code: `
 
-  useEffect(() => {
-    setIsLoading(true)
-    fetch('https://api.github.com/repos/web3-storage/w3ui/contents/examples/react/uploads-list/src/ContentPage.js')
-      .then(response => response.json())
-      .then(data => {
-        setFrameworks([{
-          id: 'react',
-          code: atob(data.content)
-        }])
-        setIsLoading(false)
-      })
-  }, [])
+      `
+    },
+    {
+      id: 'solid',
+      title: 'Solid',
+      language: 'jsx',
+      code: `
+      
+      `
+    },
+    {
+      id: 'vue',
+      title: 'Vue',
+      language: 'htmlbars',
+      code: `
+      `
+    }
+  ]
 
   return (
     <div>
       <PageHead />
-      <main className={`main ${inView ? '' : 'scrolled'}`} ref={ref}>
-        <section className={`min-h-screen flex flex-col justify-center text-left text-lg ${inView ? '' : 'scrolled'}`} ref={ref}>
+      <main className={`main ${scrollY > 10 && 'scrolled'}`}>
+        <section className={`min-h-screen flex flex-col justify-center text-left text-lg`}>
           <Header />
 
           <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-10 md:px-20 mb-24">

@@ -136,10 +136,6 @@ body {
   border-radius: 0;
 }
 
-.primary {
-  min-height: 100vh;
-}
-
 .card {
   cursor: pointer;
   transform: translateY(0);

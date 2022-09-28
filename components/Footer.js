@@ -16,7 +16,7 @@ export const Footer = () => {
                     <div className="">
                         <h5 className="text-lg mb-8 leading-none text-gray-400">Community</h5>
                         <nav className="flex flex-col gap-2">
-                            <a className="underline" href="https://web3.storage/" target="_blank" rel="noreferrer">Web3.Storage</a>
+                            <a className="underline" href="https://web3.storage/" target="_blank" rel="noreferrer">web3.storage</a>
                             <a className="underline" href="https://nft.storage/" target="_blank" rel="noreferrer">NFT.Storage</a>
                             <p><a className="underline" href="https://ipfs.io/" target="_blank" rel="noreferrer">IPFS</a> &amp; <a className="underline" href="https://filecoin.io/" target="_blank" rel="noreferrer">Filecoin</a></p>
                         </nav>
