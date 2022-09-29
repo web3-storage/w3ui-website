@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.1](https://github.com/web3-storage/w3ui-website/compare/v1.1.0...v1.1.1) (2022-09-29)
+
+
+### Bug Fixes
+
+* add codesandbox links ([e63ab86](https://github.com/web3-storage/w3ui-website/commit/e63ab860b366d4aede8de0557a8c5553a76057cc))
+* simplify docs link ([eec23fd](https://github.com/web3-storage/w3ui-website/commit/eec23fdea19c3956c173f1456c8e2d48a76ecda8))
+* swap yarn for npm so ci will work ([afcb832](https://github.com/web3-storage/w3ui-website/commit/afcb832e7184be9ab220faf4793ed406d0b4206f))
+* update code samples and links ([4203fa3](https://github.com/web3-storage/w3ui-website/commit/4203fa3419944dd045ceb9a33ada9b466f5efcdb))
+* update favico, rework code snippet, add link key for codesandbox, fix bg scroll consistency ([cfb9855](https://github.com/web3-storage/w3ui-website/commit/cfb98554411dc31b9656e1a76a676bd372af2a5c))
+* update mobile spacing and nav ([0a6b85e](https://github.com/web3-storage/w3ui-website/commit/0a6b85e9941ebed4f5af4d96dc2c96aa655d957f))
+
 ## [1.1.0](https://github.com/web3-storage/w3ui-website/compare/v1.0.1...v1.1.0) (2022-09-28)
 
 
