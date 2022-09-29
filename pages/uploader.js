@@ -27,7 +27,40 @@ export default function UploaderPage() {
       title: 'React',
       language: 'jsx',
       code: `
+import { useState } from 'react'
+import { useUploader } from '@w3ui/react-uploader'
 
+export default function Component () {
+  const { uploader } = useUploader()
+  const [file, setFile] = useState(null)
+  const [cid, setCid] = useState('')
+
+  const handleUploadSubmit = async e => {
+    e.preventDefault()
+    // Build a DAG from the file data to obtain the root CID.
+    const { cid, car } = await uploader.encodeFile(file)
+    // Upload the DAG to the service.
+    await uploader.uploadCar(car)
+    setCid(cid)
+  }
+  
+  if (cid) {
+    return (
+      <div>
+        <h1>Done!</h1>
+        <p>{cid}</p>
+      </div>
+    )
+  }
+
+  return (
+    <form onSubmit={handleUploadSubmit}>
+      <label htmlFor='file'>File:</label>
+      <input id='file' type='file' onChange={e => setFile(e.target.files[0])} required />
+      <button type='submit'>Upload</button>
+    </form>
+  )
+}
       `
     },
     {
@@ -35,7 +68,41 @@ export default function UploaderPage() {
       title: 'Solid',
       language: 'jsx',
       code: `
-      
+import { createSignal, Switch, Match } from 'solid-js'
+import { useUploader } from '@w3ui/solid-uploader'
+
+export default function Component () {
+  const [, uploader] = useUploader()
+  const [file, setFile] = createSignal(null)
+  const [cid, setCid] = createSignal('')
+
+  const handleUploadSubmit = async e => {
+    e.preventDefault()
+    // Build a DAG from the file data to obtain the root CID.
+    const { cid, car } = await uploader.encodeFile(file())
+    // Upload the DAG to the service.
+    await uploader.uploadCar(car)
+    setCid(cid)
+  }
+
+  return (
+    <Switch>
+      <Match when={cid() !== ''}>
+        <div>
+          <h1>Done!</h1>
+          <p>{cid}</p>
+        </div>
+      </Match>
+      <Match when={cid() === ''}>
+        <form onSubmit={handleUploadSubmit}>
+          <label htmlFor='file'>File:</label>
+          <input id='file' type='file' onChange={e => setFile(e.target.files[0])} required />
+          <button type='submit'>Upload</button>
+        </form>
+      </Match>
+    </Switch>
+  )
+}
       `
     },
     {
@@ -43,6 +110,43 @@ export default function UploaderPage() {
       title: 'Vue',
       language: 'htmlbars',
       code: `
+<script>
+import { UploaderProviderInjectionKey } from '@w3ui/vue-uploader'
+export default {
+  inject: {
+    encodeFile: { from: UploaderProviderInjectionKey.encodeFile },
+    uploadCar: { from: UploaderProviderInjectionKey.uploadCar }
+  },
+  data () {
+    return { file: null, cid: null }
+  },
+  methods: {
+    async handleUploadSubmit (e) {
+      e.preventDefault()
+      // Build a DAG from the file data to obtain the root CID.
+      const { cid, car } = await this.encodeFile(this.file)
+      // Upload the DAG to the service.
+      await this.uploadCar(car)
+      this.cid = cid.toString()
+    },
+    handleFileChange (e) {
+      e.preventDefault()
+      this.file = e.target.files[0]
+    }
+  }
+}
+</script>
+<template>
+  <div v-if="cid !== ''">
+    <h1>Done!</h1>
+    <p>{{cid}}</p>
+  </div>
+  <form v-if="!cid" @submit="handleUploadSubmit">
+    <label htmlFor='file'>File:</label>
+    <input id='file' type='file' @change="handleFileChange" required />
+    <button type='submit'>Upload</button>
+  </form>
+</template>
       `
     }
   ]

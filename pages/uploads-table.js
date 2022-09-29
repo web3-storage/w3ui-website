@@ -27,7 +27,27 @@ export default function UploadsTablePage() {
       title: 'React',
       language: 'jsx',
       code: `
+import { useState } from 'react'
+import { useUploadsList } from '@w3ui/react-uploads-list'
 
+export default function Component () {
+  const { loading, data, error, reload } = useUploadsList()
+  if (error) return <p>⚠️ {err.message}</p>
+
+  return (
+    <div>
+      <table>
+        {data.map(cid => (
+          <tr key={cid}>
+            <td>{cid}</td>
+          </tr>
+        ))}
+      </table>
+      <button type='button' onClick={reload}>🔄 Refresh</button>
+      {loading ? <p>Loading...</p> : null}
+    </div>
+  )
+}
       `
     },
     {
@@ -35,14 +55,34 @@ export default function UploadsTablePage() {
       title: 'Solid',
       language: 'jsx',
       code: `
-      
-      `
-    },
-    {
-      id: 'vue',
-      title: 'Vue',
-      language: 'htmlbars',
-      code: `
+import { AuthProvider, useAuth } from '@w3ui/solid-wallet'
+import { createUploadsListResource } from '@w3ui/solid-uploads-list'
+
+export default function Component () {
+  const [auth] = useAuth()
+  const [data, { refetch }] = createUploadsListResource(() => auth.identity, { initialValue: [] })
+
+  return (
+    <div>
+      <Switch>
+        <Match when={data.state === 'errored'}>
+          <p>⚠️ {err.message}</p>
+        </Match>
+        <Match when={data.state === 'ready'}>
+          <table>
+            {data().map(cid => (
+              <tr key={cid}>
+                <td>{cid}</td>
+              </tr>
+            ))}
+          </table>
+        </Match>
+      </Switch>
+      <button type='button' onClick={refetch}>🔄 Refresh</button>
+      {data.loading ? <p>Loading...</p> : null}
+    </div>
+  )
+}
       `
     }
   ]

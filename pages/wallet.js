@@ -28,32 +28,38 @@ export default function WalletPage() {
       language: 'jsx',
       link: 'http://codesandbox.io/',
       code: `
+import { useEffect, useState } from 'react'
 import { useAuth, AuthStatus } from '@w3ui/react-wallet'
 
-export default function ContentPage () {
-  const { authStatus, identity, loadDefaultIdentity, registerAndStoreIdentity, unloadIdentity, cancelRegisterAndStoreIdentity } = useAuth()
+export default function Component () {
+  const { authStatus, identity, loadDefaultIdentity, registerAndStoreIdentity } = useAuth()
+  const [email, setEmail] = useState('')
 
   useEffect(() => { loadDefaultIdentity() }, []) // try load default identity - once.
 
-  const handleRegisterSubmit = async e => {
-    e.preventDefault()
-    setSubmitted(true)
-    try {
-      await registerAndStoreIdentity(email)
-    } catch (err) {
-      throw new Error('failed to register', { cause: err })
-    } finally {
-      setSubmitted(false)
-    }
+  if (authStatus === AuthStatus.SignedIn) {
+    return (
+      <div>
+        <h1>Welcome {identity.email}!</h1>
+        <p>You are logged in!!</p>
+      </div>
+    )
+  }
+  
+  if (authStatus === AuthStatus.EmailVerification) {
+    return (
+      <div>
+        <h1>Verify your email address!</h1>
+        <p>Click the link in the email we sent to {identity.email} to sign in.</p>
+      </div>
+    )
   }
 
   return (
-    <form onSubmit={handleRegisterSubmit}>
-      <div className='mb3'>
-        <label htmlFor='email' className='db mb2'>Email address:</label>
-        <input id='email' className='db pa2 w-100' type='email' value={email} onChange={e => setEmail(e.target.value)} required />
-      </div>
-      <button type='submit' className='ph3 pv2' disabled={submitted}>Register</button>
+    <form onSubmit={e => { e.preventDefault(); registerAndStoreIdentity(email) }}>
+      <label htmlFor='email'>Email address:</label>
+      <input id='email' type='email' value={email} onChange={e => setEmail(e.target.value)} required />
+      <button type='submit'>Register</button>
     </form>
   )
 }
@@ -65,36 +71,36 @@ export default function ContentPage () {
       language: 'jsx',
       link: 'http://codesandbox.io/',
       code: `
+import { createSignal, Switch, Match } from 'solid-js'
 import { useAuth, AuthStatus } from '@w3ui/solid-wallet'
 
-export default function ContentPage () {
-  const [auth, { loadDefaultIdentity, registerAndStoreIdentity, unloadIdentity, cancelRegisterAndStoreIdentity }] = useAuth()
+export default function Component () {
+  const [auth, { loadDefaultIdentity, registerAndStoreIdentity }] = useAuth()
   const [email, setEmail] = createSignal('')
-  const [submitted, setSubmitted] = createSignal(false)
 
   loadDefaultIdentity() // try load default identity - once.
 
-  const handleRegisterSubmit = async e => {
-    e.preventDefault()
-    setSubmitted(true)
-    try {
-      await registerAndStoreIdentity(email())
-    } catch (err) {
-      throw new Error('failed to register', { cause: err })
-    } finally {
-      setSubmitted(false)
-    }
-  }
-
   return (
     <Switch>
+      <Match when={auth.status === AuthStatus.SignedIn}>
+        <div>
+          <h1>Welcome {auth.identity.email}!</h1>
+          <p>You are logged in!!</p>
+        </div>
+      </Match>
+      <Match when={auth.status === AuthStatus.EmailVerification}>
+        <div>
+          <h1>Verify your email address!</h1>
+          <p>Click the link in the email we sent to {auth.identity.email} to sign in.</p>
+        </div>
+      </Match>
       <Match when={auth.status === AuthStatus.SignedOut}>
-        <form onSubmit={handleRegisterSubmit}>
-          <div className='mb3'>
-            <label htmlFor='email' className='db mb2'>Email address:</label>
-            <input id='email' className='db pa2 w-100' type='email' value={email()} onInput={e => setEmail(e.target.value)} required />
+        <form onSubmit={e => { e.preventDefault(); registerAndStoreIdentity(email()) }}>
+          <div>
+            <label htmlFor='email'>Email address:</label>
+            <input id='email' type='email' value={email()} onInput={e => setEmail(e.target.value)} required />
           </div>
-          <button type='submit' className='ph3 pv2' disabled={submitted()}>Register</button>
+          <button type='submit'>Register</button>
         </form>
       </Match>
     </Switch>
@@ -114,15 +120,10 @@ export default {
   inject: {
     identity: { from: AuthProviderInjectionKey.identity },
     status: { from: AuthProviderInjectionKey.status },
-    registerAndStoreIdentity: { from: AuthProviderInjectionKey.registerAndStoreIdentity },
-    cancelRegisterAndStoreIdentity: { from: AuthProviderInjectionKey.cancelRegisterAndStoreIdentity },
-    unloadIdentity: { from: AuthProviderInjectionKey.unloadIdentity }
+    registerAndStoreIdentity: { from: AuthProviderInjectionKey.registerAndStoreIdentity }
   },
   data () {
-    return {
-      email: '',
-      submitted: false
-    }
+    return { email: '' }
   },
   computed: {
     AuthStatus: () => AuthStatus
@@ -130,28 +131,26 @@ export default {
   methods: {
     async handleRegisterSubmit (e) {
       e.preventDefault()
-      this.submitted = true
-      try {
-        await this.registerAndStoreIdentity(this.email)
-      } catch (err) {
-        throw new Error('failed to register', { cause: err })
-      } finally {
-        this.submitted = false
-      }
-    },
+      await this.registerAndStoreIdentity(this.email)
+    }
   }
 }
 </script>
-
 <template>
+  <div v-if="status === AuthStatus.SignedIn">
+    <h1>Welcome {{identity.email}}!</h1>
+    <p>You are logged in!!</p>
+  </div>
+  <div v-if="status === AuthStatus.EmailVerification">
+    <h1>Verify your email address!</h1>
+    <p>Click the link in the email we sent to {{identity.email}} to sign in.</p>
+  </div>
   <form v-if="status === AuthStatus.SignedOut" @submit="handleRegisterSubmit">
-    <div className="mb3">
-      <label htmlFor="email" className="db mb2">Email address:</label>
-      <input id="email" className="db pa2 w-100" type="email" v-model="email" required />
-    </div>
-    <button type="submit" className="ph3 pv2" :disabled="submitted">Register</button>
+    <label htmlFor="email">Email address:</label>
+    <input id="email" type="email" v-model="email" required />
+    <button type="submit">Register</button>
   </form>
-</template>      
+</template>     
 `
     }
   ]

@@ -56,13 +56,9 @@ export const Nav = () => {
                         {examples.map(ex => (
                             <Fragment key={ex.title}>
                                 <Menu.Item>
-                                    {({ active }) => (
-                                        <Link href={`${ex.link}`}>
-                                            <a className={`block gap-4 px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all ${ex.disabled && 'opacity-50 pointer-events-none'}`}>
-                                                <h2 className="text-base text-gray-800">{ex.title}</h2>
-                                            </a>
-                                        </Link>
-                                    )}
+                                    <a href={`${ex.link}`} target="_blank" rel="noreferrer" className={`block gap-4 px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all ${ex.disabled && 'opacity-50 pointer-events-none'}`}>
+                                        <h2 className="text-base text-gray-800">{ex.title}</h2>
+                                    </a>
                                 </Menu.Item>
                             </Fragment>
                         ))}
@@ -84,13 +80,9 @@ export const Nav = () => {
                         {APIRefs.map(apiRef => (
                             <Fragment key={apiRef.title}>
                                 <Menu.Item>
-                                    {({ active }) => (
-                                        <Link href={`${apiRef.link}`}>
-                                            <a className={`block gap-4 px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all ${apiRef.disabled && 'opacity-50 pointer-events-none'}`}>
-                                                <h2 className="text-base text-gray-800">{apiRef.title}</h2>
-                                            </a>
-                                        </Link>
-                                    )}
+                                    <a href={`${apiRef.link}`} target="_blank" rel="noreferrer" className={`block gap-4 px-4 py-2 hover:bg-gray-100 cursor-pointer transition-all ${apiRef.disabled && 'opacity-50 pointer-events-none'}`}>
+                                        <h2 className="text-base text-gray-800">{apiRef.title}</h2>
+                                    </a>
                                 </Menu.Item>
                             </Fragment>
                         ))}

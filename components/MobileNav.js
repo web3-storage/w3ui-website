@@ -15,19 +15,15 @@ export const MobileNav = () => {
             ))}
             <h5 className="text-gray-400 mt-12 uppercase text-sm">Examples</h5>
             {examples.map(ex => (
-                <Link key={ex.title} href={`${ex.link}`}>
-                    <a className={`block hover:underline cursor-pointer transition-all ${ex.disabled && 'opacity-50 pointer-events-none'}`}>
-                        {ex.title}
-                    </a>
-                </Link>
+                <a key={ex.title} href={`${ex.link}`} target="_blank" rel="noreferrer" className={`block hover:underline cursor-pointer transition-all ${ex.disabled && 'opacity-50 pointer-events-none'}`}>
+                    {ex.title}
+                </a>
             ))}
             <h5 className="text-gray-400 mt-12 uppercase text-sm">API References</h5>
             {APIRefs.map(apiRef => (
-                <Link key={apiRef.title} href={`${apiRef.link}`}>
-                    <a className={`block hover:underline cursor-pointer transition-all ${apiRef.disabled && 'opacity-50 pointer-events-none'}`}>
-                        {apiRef.title}
-                    </a>
-                </Link>
+                <a key={apiRef.title} href={`${apiRef.link}`} target="_blank" rel="noreferrer" className={`block hover:underline cursor-pointer transition-all ${apiRef.disabled && 'opacity-50 pointer-events-none'}`}>
+                    {apiRef.title}
+                </a>
             ))}
             <Link href={`https://github.com/web3-storage/w3ui`}>
                 <a className="hover:text-gray-300 transition-all mt-6">
