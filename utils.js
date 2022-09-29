@@ -49,19 +49,63 @@ export const examples = [
 
 export const APIRefs = [
     {
-        title: 'React Uploader',
+        title: 'React'
+    },
+    {
+        title: 'Uploader',
         link: 'https://github.com/web3-storage/w3ui/blob/main/docs/react-uploader.md',
     },
     {
-        title: 'React Wallet',
+        title: 'Uploads List',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/react-uploads-list.md',
+    },
+    {
+        title: 'Wallet',
         link: 'https://github.com/web3-storage/w3ui/blob/main/docs/react-wallet.md',
     },
     {
-        title: 'Wallet Core',
-        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/wallet-core.md',
+        title: 'Solid'
     },
     {
-        title: 'Uploader Core',
+        title: 'Uploader',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/solid-uploader.md',
+    },
+    {
+        title: 'Uploads List',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/solid-uploads-list.md'
+    },
+    {
+        title: 'Wallet',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/solid-wallet.md',
+    },
+    {
+        title: 'Vue'
+    },
+    {
+        title: 'Uploader',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/vue-uploader.md',
+    },
+    {
+        title: 'Uploads List',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/vue-uploads-list.md'
+    },
+    {
+        title: 'Wallet',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/vue-wallet.md',
+    },
+    {
+        title: 'Core'
+    },
+    {
+        title: 'Uploader',
         link: 'https://github.com/web3-storage/w3ui/blob/main/docs/uploader-core.md',
-    }
+    },
+    {
+        title: 'Uploads List',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/uploads-list-core.md'
+    },
+    {
+        title: 'Wallet',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/wallet-core.md',
+    },
 ]
