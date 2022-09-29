@@ -26,6 +26,7 @@ export default function UploadsTablePage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
+      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-5sles5',
       code: `
 import { useState } from 'react'
 import { useUploadsList } from '@w3ui/react-uploads-list'
@@ -54,6 +55,7 @@ export default function Component () {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-yxqm3e',
       code: `
 import { AuthProvider, useAuth } from '@w3ui/solid-wallet'
 import { createUploadsListResource } from '@w3ui/solid-uploads-list'

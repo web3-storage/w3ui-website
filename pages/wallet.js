@@ -26,7 +26,7 @@ export default function WalletPage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'http://codesandbox.io/',
+      link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-z5q6j7',
       code: `
 import { useEffect, useState } from 'react'
 import { useAuth, AuthStatus } from '@w3ui/react-wallet'
@@ -69,7 +69,7 @@ export default function Component () {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'http://codesandbox.io/',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-sign-up-in-nwohjb',
       code: `
 import { createSignal, Switch, Match } from 'solid-js'
 import { useAuth, AuthStatus } from '@w3ui/solid-wallet'
@@ -112,7 +112,7 @@ export default function Component () {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'http://codesandbox.io/',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-sign-up-in-xj2coh',
       code: `
 <script>
 import { AuthProviderInjectionKey, AuthStatus } from '@w3ui/vue-wallet'
