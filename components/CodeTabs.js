@@ -6,7 +6,7 @@ export const CodeTabs = ({ frameworks }) => {
     return (
         <>
             {frameworks && (
-                <section className="max-w-5xl mx-auto mb-24">
+                <section className="max-w-5xl mx-auto mb-24 px-6">
                     <Tab.Group>
                         <Tab.List className="flex gap-4 ml-6 justify-start">
                             {frameworks.map((fm) => (
@@ -23,11 +23,11 @@ export const CodeTabs = ({ frameworks }) => {
                             {frameworks.map((fm, idx) => (
                                 <Tab.Panel key={idx}>
                                     <div className="relative">
-                                        <SyntaxHighlighter language={fm.language} style={oneDark} className="rounded-lg shadow !p-6 !pt-10">
+                                        <SyntaxHighlighter language={fm.language} style={oneDark} className="rounded-lg shadow !p-6">
                                             {fm.code}
                                         </SyntaxHighlighter>
                                         {fm.link && (
-                                            <a href={fm.link} target="_blank" rel="noreferrer" className="px-6 py-2 border b-white text-sm rounded-md shadow-md absolute top-4 right-4 hover:bg-gray-900">View on codesandbox.io</a>
+                                            <a href={fm.link} target="_blank" rel="noreferrer" className="inline-block px-6 py-2 border b-white text-sm rounded-md shadow-md mt-8 hover:bg-gray-900">View on codesandbox.io</a>
                                         )}
                                     </div>
                                 </Tab.Panel>

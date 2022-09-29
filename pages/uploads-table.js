@@ -96,7 +96,7 @@ export default function Component () {
         <section className={`min-h-screen flex flex-col justify-center text-left text-lg`}>
           <Header />
 
-          <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-10 md:px-20 mb-24">
+          <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-16 md:px-20 mb-24">
 
             <ComponentIntro
               title="An uploads list component to simplify the next web3.storage data browsing."

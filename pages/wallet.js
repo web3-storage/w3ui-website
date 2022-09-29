@@ -162,7 +162,7 @@ export default {
         <section className={`min-h-screen flex flex-col justify-center text-left text-lg`}>
           <Header />
 
-          <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-10 md:px-20 mb-24">
+          <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-16 md:px-20 mb-24">
 
             <ComponentIntro
               title="A Wallet component to simplify the next generation of web3.storage Auth."
