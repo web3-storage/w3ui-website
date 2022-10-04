@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/web3-storage/w3ui-website/compare/v1.1.1...v1.2.0) (2022-10-04)
+
+
+### Features
+
+* update codesandbox links and add vue uploads list example ([94760b2](https://github.com/web3-storage/w3ui-website/commit/94760b28556034ff05f931dd8806cd424eabdaf3))
+
 ## [1.1.1](https://github.com/web3-storage/w3ui-website/compare/v1.1.0...v1.1.1) (2022-09-29)
 
 
