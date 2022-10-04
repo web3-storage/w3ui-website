@@ -26,7 +26,7 @@ export default function UploadsTablePage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-5sles5',
+      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-zkdm5y',
       code: `
 import { useState } from 'react'
 import { useUploadsList } from '@w3ui/react-uploads-list'
@@ -37,13 +37,28 @@ export default function Component () {
 
   return (
     <div>
-      <table>
-        {data.map(cid => (
-          <tr key={cid}>
-            <td>{cid}</td>
-          </tr>
-        ))}
-      </table>
+      {data && data.results.length
+        ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Data CID</th>
+                <th>CAR CID</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.results.map(({ dataCid, carCids, uploadedAt }) => (
+                <tr key={dataCid}>
+                  <td>{dataCid}</td>
+                  <td>{carCids[0]}</td>
+                  <td>{uploadedAt.toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          )
+        : <p>No uploads</p>}
       <button type='button' onClick={reload}>🔄 Refresh</button>
       {loading ? <p>Loading...</p> : null}
     </div>
@@ -55,14 +70,14 @@ export default function Component () {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-yxqm3e',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-olho88',
       code: `
 import { AuthProvider, useAuth } from '@w3ui/solid-wallet'
 import { createUploadsListResource } from '@w3ui/solid-uploads-list'
 
 export default function Component () {
   const [auth] = useAuth()
-  const [data, { refetch }] = createUploadsListResource(() => auth.identity, { initialValue: [] })
+  const [data, { refetch }] = createUploadsListResource(() => auth.identity, { initialValue: { results: [] } })
 
   return (
     <div>
@@ -71,13 +86,28 @@ export default function Component () {
           <p>⚠️ {err.message}</p>
         </Match>
         <Match when={data.state === 'ready'}>
-          <table>
-            {data().map(cid => (
-              <tr key={cid}>
-                <td>{cid}</td>
-              </tr>
-            ))}
-          </table>
+          {data().results.length
+            ? (
+              <table>
+                <thead>
+                  <tr>
+                    <th>Data CID</th>
+                    <th>CAR CID</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data().results.map(({ dataCid, carCids, uploadedAt }) => (
+                    <tr key={dataCid}>
+                      <td>{dataCid}</td>
+                      <td>{carCids[0]}</td>
+                      <td>{uploadedAt.toLocaleString()}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              )
+            : <p>No uploads</p>}
         </Match>
       </Switch>
       <button type='button' onClick={refetch}>🔄 Refresh</button>
@@ -85,6 +115,55 @@ export default function Component () {
     </div>
   )
 }
+      `
+    },
+    {
+      id: 'vue',
+      title: 'Vue',
+      language: 'htmlbars',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-uploads-list-p9rtwc',
+      code: `
+<script>
+import { UploadsListProviderInjectionKey } from '@w3ui/vue-uploads-list'
+
+export default {
+  inject: {
+    loading: { from: UploadsListProviderInjectionKey.loading },
+    data: { from: UploadsListProviderInjectionKey.data },
+    error: { from: UploadsListProviderInjectionKey.error },
+    reload: { from: UploadsListProviderInjectionKey.reload }
+  }
+}
+</script>
+<template>
+  <div v-if="error == null">
+    <div v-if="data && data.results.length">
+      <table>
+        <thead>
+          <tr>
+            <th>Data CID</th>
+            <th>CAR CID</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="upload in data.results">
+            <td>{{upload.dataCid}}</td>
+            <td>{{upload.carCids[0]}}</td>
+            <td>{{upload.uploadedAt.toLocaleString()}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p v-else>No uploads</p>
+    <button type="button" @click="reload">Refresh</button>
+    <p v-if="loading">Loading...</p>
+  </div>
+  <div v-else>
+    <h1>⚠️ Error: failed to list uploads: {{error.message}}</h1>
+    <p>Check the browser console for details.</p>
+  </div>
+</template>
       `
     }
   ]

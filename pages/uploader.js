@@ -26,22 +26,19 @@ export default function UploaderPage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-file-upload-l9bsn3',
+      link: 'https://codesandbox.io/s/w3ui-example-react-file-upload-6v97r5',
       code: `
 import { useState } from 'react'
 import { useUploader } from '@w3ui/react-uploader'
 
 export default function Component () {
-  const { uploader } = useUploader()
+  const [, uploader] = useUploader()
   const [file, setFile] = useState(null)
   const [cid, setCid] = useState('')
 
   const handleUploadSubmit = async e => {
     e.preventDefault()
-    // Build a DAG from the file data to obtain the root CID.
-    const { cid, car } = await uploader.encodeFile(file)
-    // Upload the DAG to the service.
-    await uploader.uploadCar(car)
+    const cid = await uploader.uploadFile(file)
     setCid(cid)
   }
   
@@ -68,7 +65,7 @@ export default function Component () {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-file-upload-14wstq',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-file-upload-lkym06',
       code: `
 import { createSignal, Switch, Match } from 'solid-js'
 import { useUploader } from '@w3ui/solid-uploader'
@@ -80,10 +77,7 @@ export default function Component () {
 
   const handleUploadSubmit = async e => {
     e.preventDefault()
-    // Build a DAG from the file data to obtain the root CID.
-    const { cid, car } = await uploader.encodeFile(file())
-    // Upload the DAG to the service.
-    await uploader.uploadCar(car)
+    const cid = await uploader.uploadFile(file())
     setCid(cid)
   }
 
@@ -111,7 +105,7 @@ export default function Component () {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-file-upload-vic3gf',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-file-upload-kw3hwn',
       code: `
 <script>
 import { UploaderProviderInjectionKey } from '@w3ui/vue-uploader'
@@ -126,10 +120,7 @@ export default {
   methods: {
     async handleUploadSubmit (e) {
       e.preventDefault()
-      // Build a DAG from the file data to obtain the root CID.
-      const { cid, car } = await this.encodeFile(this.file)
-      // Upload the DAG to the service.
-      await this.uploadCar(car)
+      const cid = await uploader.uploadFile(this.file)
       this.cid = cid.toString()
     },
     handleFileChange (e) {
