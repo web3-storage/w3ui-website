@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/web3-storage/w3ui-website/compare/v1.2.0...v1.3.0) (2022-10-18)
+
+
+### Features
+
+* rename wallet to keyring ([#10](https://github.com/web3-storage/w3ui-website/issues/10)) ([3ac4418](https://github.com/web3-storage/w3ui-website/commit/3ac441834f78554a53d32378f37038c77ee0689e))
+
 ## [1.2.0](https://github.com/web3-storage/w3ui-website/compare/v1.1.1...v1.2.0) (2022-10-04)
 
 
