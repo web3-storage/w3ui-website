@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer';
 import { CodeTabs } from '../components/CodeTabs';
 import useScrollPosition from '@react-hook/window-scroll'
 
-export default function WalletPage() {
+export default function KeyringPage() {
   const scrollY = useScrollPosition(60 /*fps*/)
   const features = [
     {
@@ -26,10 +26,10 @@ export default function WalletPage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-4mq24l',
+      link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-8m0kv8',
       code: `
 import { useEffect, useState } from 'react'
-import { useAuth, AuthStatus } from '@w3ui/react-wallet'
+import { useAuth, AuthStatus } from '@w3ui/react-keyring'
 
 export default function Component () {
   const { authStatus, identity, loadDefaultIdentity, registerAndStoreIdentity } = useAuth()
@@ -69,10 +69,10 @@ export default function Component () {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-sign-up-in-qtbfrx',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-sign-up-in-wpl9r4',
       code: `
 import { createSignal, Switch, Match } from 'solid-js'
-import { useAuth, AuthStatus } from '@w3ui/solid-wallet'
+import { useAuth, AuthStatus } from '@w3ui/solid-keyring'
 
 export default function Component () {
   const [auth, { loadDefaultIdentity, registerAndStoreIdentity }] = useAuth()
@@ -112,10 +112,10 @@ export default function Component () {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-sign-up-in-ecdn7x',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-sign-up-in-34t6e7',
       code: `
 <script>
-import { AuthProviderInjectionKey, AuthStatus } from '@w3ui/vue-wallet'
+import { AuthProviderInjectionKey, AuthStatus } from '@w3ui/vue-keyring'
 export default {
   inject: {
     identity: { from: AuthProviderInjectionKey.identity },
@@ -165,9 +165,9 @@ export default {
           <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-16 md:px-20 mb-24">
 
             <ComponentIntro
-              title="A Wallet component to simplify the next generation of web3.storage Auth."
+              title="A component to simplify the next generation of web3.storage Auth."
               desc="Simple UCAN based authentication. Includes registration and email verification, key creation and secure storage, as well as tools to switch between accounts and delegate abilities to other parties allowing you to build multi-tenant apps that allow your users to upload data to web3.storage without registration or a shared API key!"
-              id="wallet"
+              id="keyring"
             />
 
             <ComponentFeatures features={features} />

@@ -1,10 +1,10 @@
 export const components = [
     {
-        id: 'wallet',
-        title: 'Wallet',
+        id: 'keyring',
+        title: 'Keyring',
         desc: 'Simple authentication and delegation',
-        class: 'ui-wallet',
-        svg: '/ui-wallet.svg'
+        class: 'ui-keyring',
+        svg: '/ui-keyring.svg'
     },
     {
         id: 'uploader',
@@ -60,8 +60,8 @@ export const APIRefs = [
         link: 'https://github.com/web3-storage/w3ui/blob/main/docs/react-uploads-list.md',
     },
     {
-        title: 'Wallet',
-        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/react-wallet.md',
+        title: 'Keyring',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/react-keyring.md',
     },
     {
         title: 'Solid'
@@ -75,8 +75,8 @@ export const APIRefs = [
         link: 'https://github.com/web3-storage/w3ui/blob/main/docs/solid-uploads-list.md'
     },
     {
-        title: 'Wallet',
-        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/solid-wallet.md',
+        title: 'Keyring',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/solid-keyring.md',
     },
     {
         title: 'Vue'
@@ -90,8 +90,8 @@ export const APIRefs = [
         link: 'https://github.com/web3-storage/w3ui/blob/main/docs/vue-uploads-list.md'
     },
     {
-        title: 'Wallet',
-        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/vue-wallet.md',
+        title: 'Keyring',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/vue-keyring.md',
     },
     {
         title: 'Core'
@@ -105,7 +105,7 @@ export const APIRefs = [
         link: 'https://github.com/web3-storage/w3ui/blob/main/docs/uploads-list-core.md'
     },
     {
-        title: 'Wallet',
-        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/wallet-core.md',
+        title: 'Keyring',
+        link: 'https://github.com/web3-storage/w3ui/blob/main/docs/keyring-core.md',
     },
 ]

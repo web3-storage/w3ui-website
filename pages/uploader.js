@@ -26,7 +26,7 @@ export default function UploaderPage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-file-upload-6v97r5',
+      link: 'https://codesandbox.io/s/w3ui-example-react-file-upload-lthn55',
       code: `
 import { useState } from 'react'
 import { useUploader } from '@w3ui/react-uploader'
@@ -65,7 +65,7 @@ export default function Component () {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-file-upload-lkym06',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-file-upload-hu9t5j',
       code: `
 import { createSignal, Switch, Match } from 'solid-js'
 import { useUploader } from '@w3ui/solid-uploader'
@@ -105,7 +105,7 @@ export default function Component () {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-file-upload-kw3hwn',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-file-upload-rup9xj',
       code: `
 <script>
 import { UploaderProviderInjectionKey } from '@w3ui/vue-uploader'

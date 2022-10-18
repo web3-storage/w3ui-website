@@ -26,7 +26,7 @@ export default function UploadsTablePage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-zkdm5y',
+      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-hcg60h',
       code: `
 import { useState } from 'react'
 import { useUploadsList } from '@w3ui/react-uploads-list'
@@ -70,9 +70,9 @@ export default function Component () {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-olho88',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-qd0yh9',
       code: `
-import { AuthProvider, useAuth } from '@w3ui/solid-wallet'
+import { AuthProvider, useAuth } from '@w3ui/solid-keyring'
 import { createUploadsListResource } from '@w3ui/solid-uploads-list'
 
 export default function Component () {
@@ -121,7 +121,7 @@ export default function Component () {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-uploads-list-p9rtwc',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-uploads-list-ksr05v',
       code: `
 <script>
 import { UploadsListProviderInjectionKey } from '@w3ui/vue-uploads-list'
