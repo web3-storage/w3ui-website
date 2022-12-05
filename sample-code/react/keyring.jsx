@@ -1,35 +1,58 @@
-import { useEffect, useState } from 'react'
-import { useAuth, AuthStatus } from '@w3ui/react-keyring'
+import React, { useEffect, useState } from 'react'
+import { useKeyring } from '@w3ui/react-keyring'
 
 export default function Component () {
-  const { authStatus, identity, loadDefaultIdentity, registerAndStoreIdentity } = useAuth()
+  const [{ space }, { loadAgent, unloadAgent, createSpace, registerSpace, cancelRegisterSpace }] = useKeyring()
   const [email, setEmail] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
-  useEffect(() => { loadDefaultIdentity() }, []) // try load default identity - once.
+  useEffect(() => { loadAgent() }, []) // load the agent - once.
 
-  if (authStatus === AuthStatus.SignedIn) {
+  if (space?.registered()) {
     return (
       <div>
-        <h1>Welcome {identity.email}!</h1>
+        <h1>Welcome!</h1>
         <p>You are logged in!!</p>
+        <form onSubmit={e => { e.preventDefault(); unloadAgent() }}>
+          <button type='submit'>Sign Out</button>
+        </form>
       </div>
     )
   }
-  
-  if (authStatus === AuthStatus.EmailVerification) {
+
+  if (submitted) {
     return (
       <div>
         <h1>Verify your email address!</h1>
-        <p>Click the link in the email we sent to {identity.email} to sign in.</p>
+        <p>Click the link in the email we sent to {email} to sign in.</p>
+        <form onSubmit={e => { e.preventDefault(); cancelRegisterSpace() }}>
+          <button type='submit'>Cancel</button>
+        </form>
       </div>
     )
   }
 
+  const handleRegisterSubmit = async e => {
+    e.preventDefault()
+    setSubmitted(true)
+    try {
+      await createSpace()
+      await registerSpace(email)
+    } catch (err) {
+      throw new Error('failed to register', { cause: err })
+    } finally {
+      setSubmitted(false)
+    }
+  }
+
   return (
-    <form onSubmit={e => { e.preventDefault(); registerAndStoreIdentity(email) }}>
-      <label htmlFor='email'>Email address:</label>
-      <input id='email' type='email' value={email} onChange={e => setEmail(e.target.value)} required />
-      <button type='submit'>Register</button>
+    <form onSubmit={handleRegisterSubmit}>
+      <div>
+        <label htmlFor='email'>Email address:</label>
+        <input id='email' type='email' value={email} onChange={e => setEmail(e.target.value)} required />
+      </div>
+      <button type='submit' disabled={submitted}>Register</button>
     </form>
   )
 }
+
