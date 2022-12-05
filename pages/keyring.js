@@ -7,6 +7,10 @@ import { Footer } from '../components/Footer';
 import { CodeTabs } from '../components/CodeTabs';
 import useScrollPosition from '@react-hook/window-scroll'
 
+import reactSample from '../sample-code/react/keyring.jsx'
+import solidSample from '../sample-code/solid/keyring.js'
+import vueSample from '../sample-code/vue/keyring.vue'
+
 export default function KeyringPage() {
   const scrollY = useScrollPosition(60 /*fps*/)
   const features = [
@@ -27,131 +31,21 @@ export default function KeyringPage() {
       title: 'React',
       language: 'jsx',
       link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-8m0kv8',
-      code: `
-import { useEffect, useState } from 'react'
-import { useAuth, AuthStatus } from '@w3ui/react-keyring'
-
-export default function Component () {
-  const { authStatus, identity, loadDefaultIdentity, registerAndStoreIdentity } = useAuth()
-  const [email, setEmail] = useState('')
-
-  useEffect(() => { loadDefaultIdentity() }, []) // try load default identity - once.
-
-  if (authStatus === AuthStatus.SignedIn) {
-    return (
-      <div>
-        <h1>Welcome {identity.email}!</h1>
-        <p>You are logged in!!</p>
-      </div>
-    )
-  }
-  
-  if (authStatus === AuthStatus.EmailVerification) {
-    return (
-      <div>
-        <h1>Verify your email address!</h1>
-        <p>Click the link in the email we sent to {identity.email} to sign in.</p>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={e => { e.preventDefault(); registerAndStoreIdentity(email) }}>
-      <label htmlFor='email'>Email address:</label>
-      <input id='email' type='email' value={email} onChange={e => setEmail(e.target.value)} required />
-      <button type='submit'>Register</button>
-    </form>
-  )
-}
-      `
+      code: reactSample,
     },
     {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
       link: 'https://codesandbox.io/s/w3ui-example-solid-sign-up-in-wpl9r4',
-      code: `
-import { createSignal, Switch, Match } from 'solid-js'
-import { useAuth, AuthStatus } from '@w3ui/solid-keyring'
-
-export default function Component () {
-  const [auth, { loadDefaultIdentity, registerAndStoreIdentity }] = useAuth()
-  const [email, setEmail] = createSignal('')
-
-  loadDefaultIdentity() // try load default identity - once.
-
-  return (
-    <Switch>
-      <Match when={auth.status === AuthStatus.SignedIn}>
-        <div>
-          <h1>Welcome {auth.identity.email}!</h1>
-          <p>You are logged in!!</p>
-        </div>
-      </Match>
-      <Match when={auth.status === AuthStatus.EmailVerification}>
-        <div>
-          <h1>Verify your email address!</h1>
-          <p>Click the link in the email we sent to {auth.identity.email} to sign in.</p>
-        </div>
-      </Match>
-      <Match when={auth.status === AuthStatus.SignedOut}>
-        <form onSubmit={e => { e.preventDefault(); registerAndStoreIdentity(email()) }}>
-          <div>
-            <label htmlFor='email'>Email address:</label>
-            <input id='email' type='email' value={email()} onInput={e => setEmail(e.target.value)} required />
-          </div>
-          <button type='submit'>Register</button>
-        </form>
-      </Match>
-    </Switch>
-  )
-}
-`
+      code: solidSample,
     },
     {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
       link: 'https://codesandbox.io/s/w3ui-example-vue-sign-up-in-34t6e7',
-      code: `
-<script>
-import { AuthProviderInjectionKey, AuthStatus } from '@w3ui/vue-keyring'
-export default {
-  inject: {
-    identity: { from: AuthProviderInjectionKey.identity },
-    status: { from: AuthProviderInjectionKey.status },
-    registerAndStoreIdentity: { from: AuthProviderInjectionKey.registerAndStoreIdentity }
-  },
-  data () {
-    return { email: '' }
-  },
-  computed: {
-    AuthStatus: () => AuthStatus
-  },
-  methods: {
-    async handleRegisterSubmit (e) {
-      e.preventDefault()
-      await this.registerAndStoreIdentity(this.email)
-    }
-  }
-}
-</script>
-<template>
-  <div v-if="status === AuthStatus.SignedIn">
-    <h1>Welcome {{identity.email}}!</h1>
-    <p>You are logged in!!</p>
-  </div>
-  <div v-if="status === AuthStatus.EmailVerification">
-    <h1>Verify your email address!</h1>
-    <p>Click the link in the email we sent to {{identity.email}} to sign in.</p>
-  </div>
-  <form v-if="status === AuthStatus.SignedOut" @submit="handleRegisterSubmit">
-    <label htmlFor="email">Email address:</label>
-    <input id="email" type="email" v-model="email" required />
-    <button type="submit">Register</button>
-  </form>
-</template>     
-`
+      code: vueSample,
     }
   ]
 
