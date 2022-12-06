@@ -4,26 +4,28 @@ import { useUploader } from '@w3ui/solid-uploader'
 export default function Component () {
   const [, uploader] = useUploader()
   const [file, setFile] = createSignal(null)
-  const [cid, setCid] = createSignal('')
+  const [dataCid, setDataCid] = createSignal(null)
 
   const handleUploadSubmit = async e => {
     e.preventDefault()
     const cid = await uploader.uploadFile(file())
-    setCid(cid)
+    setDataCid(cid)
   }
 
   return (
     <Switch>
-      <Match when={cid() !== ''}>
+      <Match when={dataCid() !== ''}>
         <div>
           <h1>Done!</h1>
-          <p>{cid}</p>
+          <p>{dataCid}</p>
         </div>
       </Match>
-      <Match when={cid() === ''}>
+      <Match when={dataCid() === ''}>
         <form onSubmit={handleUploadSubmit}>
-          <label htmlFor='file'>File:</label>
-          <input id='file' type='file' onChange={e => setFile(e.target.files[0])} required />
+          <div>
+            <label htmlFor='file'>File:</label>
+            <input id='file' type='file' onChange={e => setFile(e.target.files[0])} required />
+          </div>
           <button type='submit'>Upload</button>
         </form>
       </Match>
