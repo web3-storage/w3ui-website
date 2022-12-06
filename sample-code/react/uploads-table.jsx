@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from 'react'
 import { useUploadsList } from '@w3ui/react-uploads-list'
 
 export default function Component () {
