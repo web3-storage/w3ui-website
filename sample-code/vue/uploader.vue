@@ -1,18 +1,21 @@
 <script>
 import { UploaderProviderInjectionKey } from '@w3ui/vue-uploader'
+
 export default {
   inject: {
-    encodeFile: { from: UploaderProviderInjectionKey.encodeFile },
-    uploadCar: { from: UploaderProviderInjectionKey.uploadCar }
+    uploadFile: { from: UploaderProviderInjectionKey.uploadFile },
   },
   data () {
-    return { file: null, cid: null }
+    return {
+      file: null,
+      dataCid: null,
+    }
   },
   methods: {
     async handleUploadSubmit (e) {
       e.preventDefault()
-      const cid = await uploader.uploadFile(this.file)
-      this.cid = cid.toString()
+      const cid = await this.uploadFile(this.file)
+      this.dataCid = cid.toString()
     },
     handleFileChange (e) {
       e.preventDefault()
@@ -21,14 +24,17 @@ export default {
   }
 }
 </script>
+
 <template>
-  <div v-if="cid !== ''">
+  <div v-if="dataCid !== ''">
     <h1>Done!</h1>
-    <p>{{cid}}</p>
+    <p>{{dataCid}}</p>
+    <p><a :href="'https://w3s.link/ipfs/' + dataCid">View {{file.name}} on IPFS Gateway.</a></p>
   </div>
-  <form v-if="!cid" @submit="handleUploadSubmit">
-    <label htmlFor='file'>File:</label>
-    <input id='file' type='file' @change="handleFileChange" required />
-    <button type='submit'>Upload</button>
+
+  <form v-if="!dataCid" @submit="handleUploadSubmit">
+    <label htmlFor="file">File:</label>
+    <input id="file" type="file" @change="handleFileChange" required />
+    <button type="submit">Upload</button>
   </form>
 </template>
