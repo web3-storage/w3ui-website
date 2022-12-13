@@ -29,7 +29,7 @@ export default {
   <div v-if="dataCid !== ''">
     <h1>Done!</h1>
     <p>{{dataCid}}</p>
-    <p><a :href="'https://w3s.link/ipfs/' + dataCid">View {{file.name}} on IPFS Gateway.</a></p>
+    <p><a :href="'https://' + dataCid + '.ipfs.w3s.link'">View {{file.name}} on IPFS Gateway.</a></p>
   </div>
 
   <form v-if="!dataCid" @submit="handleUploadSubmit">

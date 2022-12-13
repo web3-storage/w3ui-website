@@ -17,7 +17,7 @@ export default function Component () {
       <div>
         <h1>Done!</h1>
         <p>{dataCid.toString()}</p>
-        <p><a href={`https://w3s.link/ipfs/${dataCid}`}>View {file.name} on IPFS Gateway.</a></p>
+        <p><a href={`https://${dataCid}.ipfs.w3s.link`}>View {file.name} on IPFS Gateway.</a></p>
       </div>
     )
   }
