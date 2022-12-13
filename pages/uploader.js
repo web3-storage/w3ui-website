@@ -7,6 +7,10 @@ import { Footer } from '../components/Footer';
 import { CodeTabs } from '../components/CodeTabs';
 import useScrollPosition from '@react-hook/window-scroll'
 
+import reactSample from '../sample-code/react/uploader.jsx'
+import solidSample from '../sample-code/solid/uploader.js'
+import vueSample from '../sample-code/vue/uploader.vue'
+
 export default function UploaderPage() {
   const scrollY = useScrollPosition(60 /*fps*/)
   const features = [
@@ -27,121 +31,21 @@ export default function UploaderPage() {
       title: 'React',
       language: 'jsx',
       link: 'https://codesandbox.io/s/w3ui-example-react-file-upload-lthn55',
-      code: `
-import { useState } from 'react'
-import { useUploader } from '@w3ui/react-uploader'
-
-export default function Component () {
-  const [, uploader] = useUploader()
-  const [file, setFile] = useState(null)
-  const [cid, setCid] = useState('')
-
-  const handleUploadSubmit = async e => {
-    e.preventDefault()
-    const cid = await uploader.uploadFile(file)
-    setCid(cid)
-  }
-  
-  if (cid) {
-    return (
-      <div>
-        <h1>Done!</h1>
-        <p>{cid}</p>
-      </div>
-    )
-  }
-
-  return (
-    <form onSubmit={handleUploadSubmit}>
-      <label htmlFor='file'>File:</label>
-      <input id='file' type='file' onChange={e => setFile(e.target.files[0])} required />
-      <button type='submit'>Upload</button>
-    </form>
-  )
-}
-      `
+      code: reactSample,
     },
     {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
       link: 'https://codesandbox.io/s/w3ui-example-solid-file-upload-hu9t5j',
-      code: `
-import { createSignal, Switch, Match } from 'solid-js'
-import { useUploader } from '@w3ui/solid-uploader'
-
-export default function Component () {
-  const [, uploader] = useUploader()
-  const [file, setFile] = createSignal(null)
-  const [cid, setCid] = createSignal('')
-
-  const handleUploadSubmit = async e => {
-    e.preventDefault()
-    const cid = await uploader.uploadFile(file())
-    setCid(cid)
-  }
-
-  return (
-    <Switch>
-      <Match when={cid() !== ''}>
-        <div>
-          <h1>Done!</h1>
-          <p>{cid}</p>
-        </div>
-      </Match>
-      <Match when={cid() === ''}>
-        <form onSubmit={handleUploadSubmit}>
-          <label htmlFor='file'>File:</label>
-          <input id='file' type='file' onChange={e => setFile(e.target.files[0])} required />
-          <button type='submit'>Upload</button>
-        </form>
-      </Match>
-    </Switch>
-  )
-}
-      `
+      code: solidSample,
     },
     {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
       link: 'https://codesandbox.io/s/w3ui-example-vue-file-upload-rup9xj',
-      code: `
-<script>
-import { UploaderProviderInjectionKey } from '@w3ui/vue-uploader'
-export default {
-  inject: {
-    encodeFile: { from: UploaderProviderInjectionKey.encodeFile },
-    uploadCar: { from: UploaderProviderInjectionKey.uploadCar }
-  },
-  data () {
-    return { file: null, cid: null }
-  },
-  methods: {
-    async handleUploadSubmit (e) {
-      e.preventDefault()
-      const cid = await uploader.uploadFile(this.file)
-      this.cid = cid.toString()
-    },
-    handleFileChange (e) {
-      e.preventDefault()
-      this.file = e.target.files[0]
-    }
-  }
-}
-</script>
-<template>
-  <div v-if="cid !== ''">
-    <h1>Done!</h1>
-    <p>{{cid}}</p>
-  </div>
-  <form v-if="!cid" @submit="handleUploadSubmit">
-    <label htmlFor='file'>File:</label>
-    <input id='file' type='file' @change="handleFileChange" required />
-    <button type='submit'>Upload</button>
-  </form>
-</template>
-      `
+      code: vueSample, 
     }
   ]
 
