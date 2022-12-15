@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/web3-storage/w3ui-website/compare/v1.3.0...v1.4.0) (2022-12-13)
+
+
+### Features
+
+* update example code & load examples from files ([#12](https://github.com/web3-storage/w3ui-website/issues/12)) ([e4417ba](https://github.com/web3-storage/w3ui-website/commit/e4417bab1e1e56466ffeb1db53232253d26e7505))
+
 ## [1.3.0](https://github.com/web3-storage/w3ui-website/compare/v1.2.0...v1.3.0) (2022-10-18)
 
 
