@@ -14,7 +14,7 @@ export const ComponentIntro = ({ title, desc, id }) => {
                     <p className="text-lg xl:text-xl text-gray-400 mb-8 xl:max-w-4xl mx-auto !leading-relaxed xl:mb-2">{desc}</p>
                 </div>
             </div>
-            <p className="text-gray-400 my-16 text-left md:text-center"><strong className="text-white font-semibold">Supported frameworks:</strong> React, Solid, Vue, React Native, Svelte</p>
+            <p className="text-gray-400 my-16 text-left md:text-center"><strong className="text-white font-semibold">Supported frameworks:</strong> React, Solid, Vue</p>
         </>
     )
 }
