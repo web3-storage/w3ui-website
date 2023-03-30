@@ -60,8 +60,8 @@ export default function UploaderPage() {
           <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-16 md:px-20 mb-24">
 
             <ComponentIntro
-              title="A file upload component to simplify the next web3.storage data uptake."
-              desc="Tools to build content addressed datastructures, serialize them and send them to the service. Automatically split large uploads into mutliple parts and send them quickly to a massively scalable IPFS blockstore for almost immediate availability from IPFS HTTP Gateways and speedy aggregation and inclusion in Filecoin deals."
+              title="A file upload component to simplify web3.storage data uptake."
+              desc="Tools to build content addressed datastructures, serialize them and send them to the service. Automatically split large uploads into multiple parts and send them quickly to a massively scalable IPFS blockstore for almost immediate availability from IPFS HTTP Gateways and speedy aggregation and inclusion in Filecoin deals."
               id="uploader"
             />
 
