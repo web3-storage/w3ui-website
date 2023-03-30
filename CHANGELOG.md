@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/web3-storage/w3ui-website/compare/v1.4.0...v1.5.0) (2023-03-30)
+
+
+### Features
+
+* update docs for new account API ([#14](https://github.com/web3-storage/w3ui-website/issues/14)) ([c06b061](https://github.com/web3-storage/w3ui-website/commit/c06b061e31e0913a16b42ef566a77702f92107c3))
+
 ## [1.4.0](https://github.com/web3-storage/w3ui-website/compare/v1.3.0...v1.4.0) (2022-12-13)
 
 
