@@ -30,21 +30,21 @@ export default function UploaderPage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-file-upload-c86xyf',
+      link: 'https://codesandbox.io/s/w3ui-example-react-file-upload-xhwue8',
       code: reactSample,
     },
     {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-file-upload-tsotqq',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-file-upload-zzr0yc',
       code: solidSample,
     },
     {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-file-upload-p1fbgy',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-file-upload-lx572o',
       code: vueSample, 
     }
   ]

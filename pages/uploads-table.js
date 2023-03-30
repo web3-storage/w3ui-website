@@ -30,21 +30,21 @@ export default function UploadsTablePage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-z84kgg',
+      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-twg62y',
       code: reactSample,
     },
     {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-vu1nq0',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-8lhz7d',
       code: solidSample,
     },
     {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-uploads-list-jfs4fr',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-uploads-list-ubd02r',
       code: vueSample, 
     }
   ]
