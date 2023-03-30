@@ -34,17 +34,7 @@ export const examples = [
     {
         title: 'Vue',
         link: 'https://github.com/web3-storage/w3ui/tree/main/examples/vue',
-    },
-    {
-        title: 'React Native',
-        link: '',
-        disabled: true
-    },
-    {
-        title: 'Svelte',
-        link: '',
-        disabled: true
-    },
+    }
 ]
 
 export const APIRefs = [

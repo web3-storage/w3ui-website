@@ -30,21 +30,21 @@ export default function KeyringPage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-8m0kv8',
+      link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-mk3mql',
       code: reactSample,
     },
     {
       id: 'solid',
       title: 'Solid',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-sign-up-in-wpl9r4',
+      link: 'https://codesandbox.io/s/w3ui-example-solid-sign-up-in-wiu98l',
       code: solidSample,
     },
     {
       id: 'vue',
       title: 'Vue',
       language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-sign-up-in-34t6e7',
+      link: 'https://codesandbox.io/s/w3ui-example-vue-sign-up-in-k2g9e3',
       code: vueSample,
     }
   ]

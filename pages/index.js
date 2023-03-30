@@ -14,7 +14,7 @@ export default function Home() {
     <div>
       <Head>
         <title>w3ui — Headless, type-safe, UI components for Web3.Storage IPFS upload APIs</title>
-        <meta name="description" content="Headless, type-safe, UI components for React, React Native, vanilla JS, Vue, Solid, Svelte, and more." />
+        <meta name="description" content="Headless, type-safe, UI components for React, vanilla JS, Vue, Solid, and more." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -28,7 +28,7 @@ export default function Home() {
 
             <p className="text-lg xl:text-xl text-gray-400 mb-8 xl:max-w-4xl mx-auto !leading-relaxed xl:mb-2">Build production ready apps or awesome demos for hackathons that use the web3.storage service for storing content addressed IPLD data on IPFS and Filecoin. Pick a supported framework or go vanilla and spin up a Web 3.0 application using headless components that let YOU choose the theme and interactions.</p>
 
-            <p className="text-gray-400 mt-16 mb-6"><strong className="text-white font-semibold">Supported frameworks:</strong> React, Solid, Vue, React Native, Svelte</p>
+            <p className="text-gray-400 mt-16 mb-6"><strong className="text-white font-semibold">Supported frameworks:</strong> React, Solid, Vue</p>
 
             <section className="w-full max-w-7xl mx-auto flex mb-36">
               <div className="grid w-full justify-center sm:grid-cols-3 gap-2 lg:gap-8 gap-y-16">
