@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/web3-storage/w3ui-website/compare/v1.5.0...v1.5.1) (2023-03-31)
+
+
+### Bug Fixes
+
+* update descriptions of uploader and uploads list components ([#16](https://github.com/web3-storage/w3ui-website/issues/16)) ([883b4a1](https://github.com/web3-storage/w3ui-website/commit/883b4a13abdd45ac22670b758aa0583c4c8c4ad2))
+
 ## [1.5.0](https://github.com/web3-storage/w3ui-website/compare/v1.4.0...v1.5.0) (2023-03-30)
 
 
