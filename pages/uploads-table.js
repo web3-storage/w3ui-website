@@ -1,5 +1,5 @@
 import { PageHead } from '../components/PageHead';
-import { CodeBracketSquareIcon, MagnifyingGlassPlusIcon } from '@heroicons/react/24/outline';
+import { CodeBracketSquareIcon, DocumentIcon } from '@heroicons/react/24/outline';
 import { Header } from '../components/Header';
 import { ComponentIntro } from '../components/ComponentIntro';
 import { ComponentFeatures } from '../components/ComponentFeatures';
@@ -15,14 +15,14 @@ export default function UploadsTablePage() {
   const scrollY = useScrollPosition(60 /*fps*/)
   const features = [
     {
-      name: 'Built-in Data "Insights"',
-      description: 'Data is processed to include pathing, possibly malware and keywords to expand upload insights',
+      name: 'Simple and Flexible List Component',
+      description: 'Display your w3up data the way you want with our headless list component.',
       icon: CodeBracketSquareIcon,
     },
     {
-      name: 'Advanced Search',
-      description: 'Filter and sort by multiple fields as well as by scoped auth keys for those who were delegated access',
-      icon: MagnifyingGlassPlusIcon,
+      name: 'Easy Pagination',
+      description: 'Headless components make it easy to navigate forward and backward through paginated lists of your w3up data.',
+      icon: DocumentIcon,
     }
   ]
   const frameworks = [
@@ -59,8 +59,8 @@ export default function UploadsTablePage() {
           <div className="flex-grow flex flex-col justify-center w-full max-w-6xl mx-auto px-16 md:px-20 mb-24">
 
             <ComponentIntro
-              title="An uploads list component to simplify the next web3.storage data browsing."
-              desc="Obtain paginated listings of items uploaded to the service, optionally filtered and sorted by multiple fields and scoped to the auth keys that were delegated capabilities to upload. Listings also include processed “insights” into data structures which may include pathing data, malware detection and search keywords."
+              title="An uploads list component to simplify web3.storage data browsing."
+              desc="Obtain paginated listings of items uploaded to the service."
               id="table"
             />
 
