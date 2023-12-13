@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/web3-storage/w3ui-website/compare/v1.5.1...v1.6.0) (2023-12-13)
+
+
+### Features
+
+* updates to the w3ui documentation site ([#18](https://github.com/web3-storage/w3ui-website/issues/18)) ([dea985f](https://github.com/web3-storage/w3ui-website/commit/dea985f349f1d0923ae048829c6ff566e01fa9ec))
+
 ## [1.5.1](https://github.com/web3-storage/w3ui-website/compare/v1.5.0...v1.5.1) (2023-03-31)
 
 
