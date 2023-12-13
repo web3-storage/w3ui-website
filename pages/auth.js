@@ -1,17 +1,15 @@
-import { PageHead } from '../components/PageHead';
+import { PageHead } from '../components/PageHead.js';
 import { ShieldCheckIcon, UserGroupIcon } from '@heroicons/react/24/outline';
-import { Header } from '../components/Header';
-import { ComponentIntro } from '../components/ComponentIntro';
-import { ComponentFeatures } from '../components/ComponentFeatures';
-import { Footer } from '../components/Footer';
-import { CodeTabs } from '../components/CodeTabs';
+import { Header } from '../components/Header.js';
+import { ComponentIntro } from '../components/ComponentIntro.js';
+import { ComponentFeatures } from '../components/ComponentFeatures.js';
+import { Footer } from '../components/Footer.js';
+import { CodeTabs } from '../components/CodeTabs.js';
 import useScrollPosition from '@react-hook/window-scroll'
 
-import reactSample from '../sample-code/react/keyring.jsx'
-import solidSample from '../sample-code/solid/keyring.js'
-import vueSample from '../sample-code/vue/keyring.vue'
+import reactSample from '../sample-code/react/auth.jsx'
 
-export default function KeyringPage() {
+export default function AuthPage() {
   const scrollY = useScrollPosition(60 /*fps*/)
   const features = [
     {
@@ -30,22 +28,9 @@ export default function KeyringPage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-mk3mql',
+      // TODO: revive after codesandbox is working again
+      //link: 'https://codesandbox.io/s/w3ui-example-react-sign-up-in-mk3mql',
       code: reactSample,
-    },
-    {
-      id: 'solid',
-      title: 'Solid',
-      language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-sign-up-in-wiu98l',
-      code: solidSample,
-    },
-    {
-      id: 'vue',
-      title: 'Vue',
-      language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-sign-up-in-k2g9e3',
-      code: vueSample,
     }
   ]
 
@@ -61,7 +46,7 @@ export default function KeyringPage() {
             <ComponentIntro
               title="A component to simplify the next generation of web3.storage Auth."
               desc="Simple UCAN based authentication. Includes registration and email verification, key creation and secure storage, as well as tools to switch between accounts and delegate abilities to other parties allowing you to build multi-tenant apps that allow your users to upload data to web3.storage without registration or a shared API key!"
-              id="keyring"
+              id="auth"
             />
 
             <ComponentFeatures features={features} />
