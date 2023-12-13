@@ -8,8 +8,6 @@ import { CodeTabs } from '../components/CodeTabs';
 import useScrollPosition from '@react-hook/window-scroll'
 
 import reactSample from '../sample-code/react/uploads-table.jsx'
-import solidSample from '../sample-code/solid/uploads-table.js'
-import vueSample from '../sample-code/vue/uploads-table.vue'
 
 export default function UploadsTablePage() {
   const scrollY = useScrollPosition(60 /*fps*/)
@@ -30,22 +28,9 @@ export default function UploadsTablePage() {
       id: 'react',
       title: 'React',
       language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-twg62y',
+      // TODO: revive after codesandbox is working again
+      //link: 'https://codesandbox.io/s/w3ui-example-react-uploads-list-twg62y',
       code: reactSample,
-    },
-    {
-      id: 'solid',
-      title: 'Solid',
-      language: 'jsx',
-      link: 'https://codesandbox.io/s/w3ui-example-solid-uploads-list-8lhz7d',
-      code: solidSample,
-    },
-    {
-      id: 'vue',
-      title: 'Vue',
-      language: 'htmlbars',
-      link: 'https://codesandbox.io/s/w3ui-example-vue-uploads-list-ubd02r',
-      code: vueSample, 
     }
   ]
 

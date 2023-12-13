@@ -1,34 +1,17 @@
-import React, { useState } from 'react'
-import { useUploader } from '@w3ui/react-uploader'
+import React from 'react'
+import { useUploader, Uploader } from '@w3ui/react'
 
-export default function Component () {
-  const [, uploader] = useUploader()
-  const [file, setFile] = useState(null)
-  const [dataCid, setDataCid] = useState('')
-
-  const handleUploadSubmit = async e => {
-    e.preventDefault()
-    const cid = await uploader.uploadFile(file)
-    setDataCid(cid)
-  }
-
-  if (dataCid) {
-    return (
-      <div>
-        <h1>Done!</h1>
-        <p>{dataCid.toString()}</p>
-        <p><a href={`https://${dataCid}.ipfs.w3s.link`}>View {file.name} on IPFS Gateway.</a></p>
-      </div>
-    )
-  }
-
+export default function Component() {
+  const [{ file }] = useUploader()
+  const hasFile = file !== undefined
   return (
-    <form onSubmit={handleUploadSubmit}>
-      <div>
-        <label htmlFor='file'>File:</label>
-        <input id='file' type='file' onChange={e => setFile(e.target.files[0])} required />
-      </div>
-      <button type='submit'>Upload</button>
-    </form>
+    <Uploader.Form>
+      <label className={`${hasFile ? 'hidden' : 'block'}`}>File:</label>
+      <Uploader.Input className={`${hasFile ? 'hidden' : 'block'}`} />
+      <span className={`${hasFile ? 'block' : 'hidden'}`}>{file.name}</span>
+      <button type='submit' disabled={!hasFile}>
+        Upload
+      </button>
+    </Uploader.Form>
   )
 }
